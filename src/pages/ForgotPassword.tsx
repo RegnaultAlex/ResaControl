@@ -14,7 +14,7 @@ const ForgotPassword = () => {
 
     const handlePwdReset = async () => {
 
-        if (email === "" || !message.includes("@"))
+        if (email === "" || !email.includes("@"))
         {
             setMessage("Veuillez entrer une adresse email valide !");
             return ;
