@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import resaControl from '@/assets/resaControl.svg'
 
 
-const ForgotPassword = () => {
+const ForgotPasswordPage = () => {
 
 
     const [email, setEmail] = useState<string>("");
@@ -83,4 +83,4 @@ const ForgotPassword = () => {
 )
 }
 
-export default ForgotPassword
+export default ForgotPasswordPage

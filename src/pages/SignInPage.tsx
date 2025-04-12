@@ -1,31 +1,43 @@
 import { useState } from 'react';
-import { supabase } from "../../lib/supabase.ts";
 import { Button, Input, Field, FieldRequiredIndicator, InputGroup } from "@chakra-ui/react";
 import { CiLock, CiMail } from "react-icons/ci";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import resaControl from '@/assets/resaControl.svg'
+import { UserAuth } from '@/compenents/AuthContext.tsx';
 
 
-
-
-const SignIn = () => {
+const SignInPage = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [message, setMessage] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
+
+    const navigate = useNavigate();
+
+    const { session, SignIn } = UserAuth();
 
     const handleSignIn = async (e: React.FormEvent) => {
 
         e.preventDefault();
 
-        const { error } = await supabase.auth.signInWithPassword({
-            email: email,
-            password: password
-        });
+        try 
+        {
+            const result = await SignIn({ email, password });
+            
+            if (result!.success)
+            {
+                navigate("/");
+            }
 
-        error ? setMessage("Les identifiants ne sont pas corrects !") : setMessage("Connexion réussie");
-
+        }
+        catch(err)
+        {
+            setError("Erreur lors de l'inscription")
+        }
+        
+        
     }
+
 
 
     return (
@@ -96,7 +108,7 @@ const SignIn = () => {
                         Se connecter
                     </Button>
 
-                    {message && <span className={message.includes("!") ? "text-red-500 mt-6" : "text-blue-600 mt-6"}>{message}</span>}
+                    {error && <span className={error.includes("!") ? "text-red-500 mt-6" : "text-blue-600 mt-6"}>{error}</span>}
 
                 </form>
 
@@ -105,4 +117,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn;
+export default SignInPage;

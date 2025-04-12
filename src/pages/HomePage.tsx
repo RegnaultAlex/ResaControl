@@ -1,7 +1,7 @@
 import Navbar from '@/compenents/Navbar'
 
 
-export default function HomePage()
+const HomePage = () =>
 {
 
 
@@ -11,3 +11,6 @@ export default function HomePage()
         </>
     )
 }
+
+
+export default HomePage
