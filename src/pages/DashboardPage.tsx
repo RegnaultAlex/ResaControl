@@ -1,6 +1,6 @@
-import { UserAuth } from '@/compenents/AuthContext'
-import React from 'react'
-import SignInPage from './SignInPage';
+import { UserAuth } from '@/components/AuthContext'
+import DashboardLayout from '@/components/DashboardLayout';
+import EmptyComp from '@/components/emptyComp';
 
 const DashboardPage = () => {
 
@@ -12,22 +12,11 @@ const DashboardPage = () => {
 
     return (
 
-        session ?
-
-        <>
-        
-            
-        
-        
-        </>
-
-
-        :
-
-
-        <SignInPage/>
+        <DashboardLayout>
+            <EmptyComp/>
+        </DashboardLayout>
 
     )
 }
 
-export default DashboardPage
+export default DashboardPage;

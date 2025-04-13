@@ -3,7 +3,7 @@ import { Button, Input, Field, FieldRequiredIndicator, InputGroup } from "@chakr
 import { CiLock, CiMail } from "react-icons/ci";
 import { Link, useNavigate } from 'react-router-dom';
 import resaControl from '@/assets/resaControl.svg'
-import { UserAuth } from '@/compenents/AuthContext.tsx';
+import { UserAuth } from '@/components/AuthContext';
 
 
 const SignInPage = () => {
@@ -26,7 +26,7 @@ const SignInPage = () => {
             
             if (result!.success)
             {
-                navigate("/");
+                navigate("/dashboard");
             }
 
         }
@@ -44,8 +44,6 @@ const SignInPage = () => {
 
             <div className={"h-screen w-full flex justify-center items-center"}>
 
-
-                
                 <Link to={"/"} className='absolute top-6 left-6'>
                     <img src={resaControl} width={"150px"}/>
                 </Link>

@@ -1,13 +1,15 @@
 import { createContext, useState, useContext, useEffect } from 'react';
-import { supabase } from '../../lib/supabase';
+import { supabase } from '../../supabase/supabase';
 import { Session } from '@supabase/supabase-js';
 
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
-export const AuthContextProvider = ({ children } : { children : React.ReactElement}) => {
+export const AuthContextProvider = ({ children } : { children : React.ReactElement }) => {
 
     const [session, setSession] = useState<Session | null>(null);
+    const [loading, setLoading] = useState(true);
+
 
     // Sign Up
     const SignUp = async ({ email, password } : { email : string, password : string }) => {
@@ -23,7 +25,7 @@ export const AuthContextProvider = ({ children } : { children : React.ReactEleme
             if (error)
             {
                 console.error("Probleme lors d'inscription : ", error);
-                return { success: false, error: error};
+                return { success: false, error: error };
             }
     
             return { success: true, data: data };
@@ -67,14 +69,20 @@ export const AuthContextProvider = ({ children } : { children : React.ReactEleme
 
 
     useEffect(() => {
-        
+
         supabase.auth.getSession().then(({data: {session}}) => {
             setSession(session);
+            setLoading(false);
         })
 
-        supabase.auth.onAuthStateChange((event, session) => {
+        const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
             setSession(session);
-        })
+            setLoading(false);
+        });
+
+        return () => {
+            subscription.unsubscribe();
+        }
 
     }, [])
 
@@ -95,7 +103,7 @@ export const AuthContextProvider = ({ children } : { children : React.ReactEleme
 
 
     return (
-        <AuthContext.Provider value={{ session, SignIn, SignUp, SignOut }} >
+        <AuthContext.Provider value={{ session, loading, SignIn, SignUp, SignOut }} >
             {children}
         </AuthContext.Provider>
     )
@@ -116,6 +124,7 @@ export const UserAuth = () => {
 
 type AuthContextType = {
     session: Session | null;
+    loading: boolean;
     SignIn: ({ email, password }: { email: string; password: string }) => Promise<{ success: boolean; error: any } | { success: boolean; data: any } | undefined>;
     SignUp: ({ email, password }: { email: string; password: string }) => Promise<{ success: boolean; error: any } | { success: boolean; data: any } | undefined>;
     SignOut: () => Promise<void>;

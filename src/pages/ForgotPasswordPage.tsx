@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { supabase } from "../../lib/supabase.ts";
+import { supabase } from "../../supabase/supabase.ts";
 import { Button, Input, Field, FieldRequiredIndicator, InputGroup } from "@chakra-ui/react";
 import { CiMail } from "react-icons/ci";
 import { Link } from 'react-router-dom';

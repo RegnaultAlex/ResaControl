@@ -4,7 +4,7 @@ import { CiLock, CiMail } from "react-icons/ci";
 import { Link, useNavigate } from 'react-router-dom';
 import resaControl from '@/assets/resaControl.svg'
 import { PiWarningCircleLight } from "react-icons/pi";
-import { UserAuth } from '@/compenents/AuthContext.tsx';
+import { UserAuth } from '@/components/AuthContext';
 
 
 
