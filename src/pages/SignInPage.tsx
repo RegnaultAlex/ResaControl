@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, Input, Field, FieldRequiredIndicator, InputGroup } from "@chakra-ui/react";
 import { CiLock, CiMail } from "react-icons/ci";
 import { Link, useNavigate } from 'react-router-dom';
-import resaControl from '@/assets/resaControl.svg'
+import resaControl from '@/assets/ResaControlText.svg'
 import { UserAuth } from '@/components/AuthContext';
 
 
@@ -14,7 +14,7 @@ const SignInPage = () => {
 
     const navigate = useNavigate();
 
-    const { session, SignIn } = UserAuth();
+    const { SignIn } = UserAuth();
 
     const handleSignIn = async (e: React.FormEvent) => {
 
@@ -48,7 +48,7 @@ const SignInPage = () => {
                     <img src={resaControl} width={"150px"}/>
                 </Link>
 
-                <form onSubmit={handleSignIn} className={"flex flex-col px-6 sm:px-12 md:px-14 lg:px-20 py-14 bg-gray-200 rounded-md"}>
+                <form onSubmit={handleSignIn} className={"flex flex-col px-6 sm:px-12 md:px-14 lg:px-20 py-14 rounded-md"}>
 
                     <h1 className={"text-4xl mb-10 self-center select-none"}>Connexion</h1>
 
@@ -106,7 +106,7 @@ const SignInPage = () => {
                         Se connecter
                     </Button>
 
-                    {error && <span className={error.includes("!") ? "text-red-500 mt-6" : "text-blue-600 mt-6"}>{error}</span>}
+                    {error && <span className={"text-red-500 mt-6"}>{error}</span>}
 
                 </form>
 

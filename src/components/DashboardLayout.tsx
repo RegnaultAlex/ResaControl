@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import resaControl from '@/assets/resaControl.svg'
+import resaControl from '@/assets/ResaControlText.svg'
 import { UserAuth } from './AuthContext'
 import { getRestaurantsName } from '../../supabase/queries'
 import { FaHouse } from "react-icons/fa6";
@@ -40,7 +40,7 @@ const DashboardLayout = ({ children } : { children : React.ReactElement }) => {
             }
         })
         .catch((err) =>
-            console.error("An error occurred retrieving restaurants names:", err)
+            console.error("An error occurred retrieving restaurants names: ", err)
         );
 
     }, [loading, session]);
@@ -57,18 +57,17 @@ const DashboardLayout = ({ children } : { children : React.ReactElement }) => {
         loading ?
 
 
-        <div className='flex justify-center align-middle h-screen overflow-hidden'>
+        <div className='flex justify-center content-center h-screen overflow-hidden'>
             <h1>Loading ...</h1>
         </div>
-
 
         :
 
         <div className='block h-screen overflow-hidden'>
 
             {/* Navbar */}
-            <nav className='flex justify-between items-center w-full border-b-2 h-24'>
-                <Link to={"/"}>
+            <nav className='flex justify-between items-center w-full border-b-1 border-[#e6e6e6] h-24'>
+                <Link to={"/"} className='w-44 ml-6'>
                     <img src={resaControl}/>
                 </Link>
 
@@ -82,33 +81,33 @@ const DashboardLayout = ({ children } : { children : React.ReactElement }) => {
             </nav>
         
             {/* SideBar */}
-            <div className='block border-r-2 border-gray h-[calc(100vh-96px)] w-80 max-h-screen'>
+            <div id="sidebar" className='block border-r-1 border-[#e6e6e6] h-[calc(100vh-96px)] w-64 max-h-screen'>
                 
                 <ul className='flex flex-col h-full'>
 
                     <li>
                         <Link to={"/restaurants"}>
-                            <FaHouse className='inline-block mr-3 mt-[-8px] size-6'/>Restaurants
+                            <FaHouse className='icon'/>Restaurants
                         </Link>    
                     </li>
                     <li>
                         <Link to={"/reservations"}>
-                            <IoRestaurantSharp className='inline-block mr-3 mt-[-8px] size-6'/>Reservations
+                            <IoRestaurantSharp className='icon'/>Reservations
                         </Link>    
                     </li>
                     <li>
                         <Link to={"/reservations"}>
-                            <FaHistory className='inline-block mr-3 mt-[-8px] size-6'/>Historique
+                            <FaHistory className='icon'/>Historique
                         </Link>    
                     </li>
                     <li>
                         <Link to={"/statistiques"}>
-                            <IoIosStats className='inline-block mr-3 mt-[-7px] size-6'/>Statistiques
+                            <IoIosStats className='icon'/>Statistiques
                         </Link>    
                     </li>
-                    <li>
+                    <li className='mt-auto'>
                         <Link to={"/parametres"}>
-                            <IoIosSettings className='inline-block mr-3 mt-[-5px] size-6'/>Paramètres
+                            <IoIosSettings className='icon'/>Paramètres
                         </Link>    
                     </li>
                     

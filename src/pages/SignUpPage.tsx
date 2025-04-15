@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, Input, Field, FieldRequiredIndicator, InputGroup } from "@chakra-ui/react";
 import { CiLock, CiMail } from "react-icons/ci";
 import { Link, useNavigate } from 'react-router-dom';
-import resaControl from '@/assets/resaControl.svg'
+import resaControl from '@/assets/ResaControlText.svg'
 import { PiWarningCircleLight } from "react-icons/pi";
 import { UserAuth } from '@/components/AuthContext';
 
@@ -50,7 +50,7 @@ const SignUpPage = () => {
                     <img src={resaControl} width={"150px"}/>
                 </Link>
 
-                <form onSubmit={handleSignUp} className={"flex flex-col px-6 sm:px-12 md:px-14 lg:px-20 py-14 bg-gray-200 rounded-md"}>
+                <form onSubmit={handleSignUp} className={"flex flex-col px-6 sm:px-12 md:px-14 lg:px-20 py-14  rounded-md"}>
 
                     <h1 className={"text-4xl mb-10 self-center select-none"}>Créez votre compte</h1>
 
