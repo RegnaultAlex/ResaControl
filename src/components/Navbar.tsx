@@ -1,8 +1,8 @@
 import { Button } from "@chakra-ui/react"
 import { Link } from 'react-router-dom'
 import { IoMdMenu } from "react-icons/io"
-import React, { JSX, useState } from 'react'
-import ResaControl from '@/assets/resaControl.svg'
+import { useState } from 'react'
+import ResaControl from '@/assets/ResaControlText.svg'
 import { useWindowSize } from 'react-use'
 
 
@@ -32,7 +32,7 @@ export default function Navbar()
                     width > 700 ?
                                     
                     <>
-                        <Button colorPalette={"black"} color={"white"} asChild marginRight={"30px"}     >
+                        <Button colorPalette={"black"} color={"white"} asChild marginRight={"30px"}>
                             <Link to="/signup">Sign up</Link>
                         </Button>
 

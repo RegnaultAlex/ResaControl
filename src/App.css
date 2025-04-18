@@ -1,3 +1,35 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+#sidebar li {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 20px 0;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    border-radius: 5px;
+}
+
+#sidebar li:last-of-type {
+    border: 0;
+}
+
+#sidebar li:hover {
+    background-color: rgb(226, 225, 225);
+    transition: all 0.5s;
+}
+
+#sidebar li:last-of-type:hover {
+    background-color: initial;
+    transition: all 0.5s;
+}
+
+#sidebar .icon {
+    display: inline-block;
+    margin: 0px 30px;
+    font-size: 20px;
+}

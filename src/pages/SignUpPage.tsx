@@ -1,46 +1,45 @@
 import { useState } from 'react';
-import { supabase } from "../../lib/supabase.ts";
 import { Button, Input, Field, FieldRequiredIndicator, InputGroup } from "@chakra-ui/react";
 import { CiLock, CiMail } from "react-icons/ci";
-import { Link, redirect } from 'react-router-dom';
-import resaControl from '@/assets/resaControl.svg'
+import { Link, useNavigate } from 'react-router-dom';
+import resaControl from '@/assets/ResaControlText.svg'
 import { PiWarningCircleLight } from "react-icons/pi";
+import { UserAuth } from '@/components/AuthContext';
 
 
 
-const SignUp = () => {
+
+const SignUpPage = () => {
 
     const [email, setEmail] = useState<string>("");
     const [password, setPassword] = useState<string>("");
     const [confirmedPassword, setConfirmedPassword] = useState<string>("");
-    const [message, setMessage] = useState<string | null>(null);
+    const [error, setError] = useState<string | null>(null);
 
-    const handleSignUp = async (e: React.FormEvent) => {
+    const navigate = useNavigate();
+
+    const { session, SignUp } = UserAuth();
+
+
+    const handleSignUp = async (e : React.FormEvent) => {
 
         e.preventDefault();
-
-
-        if (password !== confirmedPassword) { setMessage("Les mots de passe ne correspondent pas !"); return;}
-
-        const { data, error } = await supabase.auth.signUp({
-            email: email,
-            password: password
-        });
-
-        if (!error)
+        try 
         {
-            setMessage("Connexion réussie");
-            console.log(data);
-            setTimeout(() => {
-                redirect("/");
-            }, 3000);
+            const result = await SignUp({ email, password });
+            
+            if (result!.success)
+            {
+                navigate("/");
+            }
         }
-        else
+        catch(err)
         {
-            setMessage("Cette adresse email est déjà utilisée !")
+            setError("Erreur lors de l'inscription")
         }
-
     }
+
+    
 
 
     return (
@@ -51,7 +50,7 @@ const SignUp = () => {
                     <img src={resaControl} width={"150px"}/>
                 </Link>
 
-                <form onSubmit={handleSignUp} className={"flex flex-col px-6 sm:px-12 md:px-14 lg:px-20 py-14 bg-gray-200 rounded-md"}>
+                <form onSubmit={handleSignUp} className={"flex flex-col px-6 sm:px-12 md:px-14 lg:px-20 py-14  rounded-md"}>
 
                     <h1 className={"text-4xl mb-10 self-center select-none"}>Créez votre compte</h1>
 
@@ -130,7 +129,7 @@ const SignUp = () => {
                         S'enregistrer
                     </Button>
 
-                    {message && <span className={message.includes("!") ? "text-red-500 mt-6" : "text-blue-600 mt-6"}>{message}</span>}
+                    {error && <span className={error.includes("!") ? "text-red-500 mt-6" : "text-blue-600 mt-6"}>{error}</span>}
 
                 </form>
 
@@ -139,4 +138,4 @@ const SignUp = () => {
     )
 }
 
-export default SignUp;
+export default SignUpPage;
