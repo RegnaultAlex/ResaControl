@@ -1,7 +1,7 @@
 import { Button } from "@chakra-ui/react"
 import { Link } from 'react-router-dom'
 import { IoMdMenu } from "react-icons/io"
-import React, { JSX, useState } from 'react'
+import { useState } from 'react'
 import ResaControl from '@/assets/ResaControlText.svg'
 import { useWindowSize } from 'react-use'
 
