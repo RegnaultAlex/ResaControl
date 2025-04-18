@@ -12,6 +12,7 @@
     text-align: center;
     display: flex;
     border-radius: 5px;
+    user-select: none;
 }
 
 #sidebar li:last-of-type {

@@ -3,7 +3,7 @@ import { Button, Input, Field, FieldRequiredIndicator, InputGroup } from "@chakr
 import { CiLock, CiMail } from "react-icons/ci";
 import { Link, useNavigate } from 'react-router-dom';
 import resaControl from '@/assets/ResaControlText.svg'
-import { UserAuth } from '@/components/AuthContext';
+import { UserAuth } from '@/components/auth/AuthContext';
 
 
 const SignInPage = () => {
@@ -27,6 +27,10 @@ const SignInPage = () => {
             if (result!.success)
             {
                 navigate("/dashboard");
+            }
+            else
+            {
+                setError("Les identifiants ne sont pas corrects !")
             }
 
         }

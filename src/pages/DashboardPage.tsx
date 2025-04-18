@@ -1,5 +1,5 @@
-import { UserAuth } from '@/components/AuthContext'
-import DashboardLayout from '@/components/DashboardLayout';
+import { UserAuth } from '@/components/auth/AuthContext'
+import DashboardLayout from '@/components/layouts/DashboardLayout';
 import EmptyComp from '@/components/emptyComp';
 
 const DashboardPage = () => {

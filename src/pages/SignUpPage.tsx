@@ -4,7 +4,7 @@ import { CiLock, CiMail } from "react-icons/ci";
 import { Link, useNavigate } from 'react-router-dom';
 import resaControl from '@/assets/ResaControlText.svg'
 import { PiWarningCircleLight } from "react-icons/pi";
-import { UserAuth } from '@/components/AuthContext';
+import { UserAuth } from '@/components/auth/AuthContext';
 
 
 
@@ -18,7 +18,7 @@ const SignUpPage = () => {
 
     const navigate = useNavigate();
 
-    const { session, SignUp } = UserAuth();
+    const { SignUp } = UserAuth();
 
 
     const handleSignUp = async (e : React.FormEvent) => {
@@ -31,6 +31,10 @@ const SignUpPage = () => {
             if (result!.success)
             {
                 navigate("/");
+            }
+            else
+            {
+                setError("Cette addresse e-mail est déjà utilisée !")
             }
         }
         catch(err)
@@ -129,7 +133,7 @@ const SignUpPage = () => {
                         S'enregistrer
                     </Button>
 
-                    {error && <span className={error.includes("!") ? "text-red-500 mt-6" : "text-blue-600 mt-6"}>{error}</span>}
+                    {error && <span className={"text-red-500 mt-6"}>{error}</span>}
 
                 </form>
 

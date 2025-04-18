@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import resaControl from '@/assets/ResaControlText.svg'
-import { UserAuth } from './AuthContext'
-import { getRestaurantsName } from '../../supabase/queries'
+import { UserAuth } from '../auth/AuthContext'
+import { getRestaurantsName } from '@/../supabase/queries'
 import { FaHouse } from "react-icons/fa6";
 import { IoRestaurantSharp } from "react-icons/io5";
 import { IoIosStats } from "react-icons/io";

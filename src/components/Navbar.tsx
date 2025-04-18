@@ -18,25 +18,25 @@ export default function Navbar()
     return (
         <>
 
-            <div className="flex w-full h-24 border-b-2">
+            <div className="flex justify-between w-full h-24 border-b-2">
 
-                <div className="flex items-center w-3/4 md:w-1/2 h-full ">
+                <div className="flex items-center md:w-1/2 h-full pl-14">
                     <Link to="/" className='block ml-2'>
                         <img src={ResaControl} className='h-20 w-["100px"] my-2'/>
                     </Link>
                 </div>
 
-                <div className="flex w-1/4 md:w-1/2 h-full items-center justify-end">
+                <div className="flex h-full items-center pr-16">
                 {
                     
-                    width > 700 ?
+                    width > 525 ?
                                     
                     <>
                         <Button colorPalette={"black"} color={"white"} asChild marginRight={"30px"}>
                             <Link to="/signup">Sign up</Link>
                         </Button>
 
-                        <Button variant={"ghost"} asChild marginRight={"30px"} >
+                        <Button variant={"ghost"} asChild >
                             <Link to="/signin">Sign in</Link>
                         </Button>
                     </>
@@ -46,7 +46,7 @@ export default function Navbar()
                         isOpen ?
 
                         <div>
-                            
+                            // TO DO
                         </div>
                         
 
