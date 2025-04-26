@@ -3,4 +3,4 @@
 - ReactJS
 - TailwindCSS
 - Chakra-UI
-- Supabase (Auth + DB)
+- Supabase (Auth + DB + API)
