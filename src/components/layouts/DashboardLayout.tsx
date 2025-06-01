@@ -3,11 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import resaControl from '@/assets/ResaControlText.svg'
 import { UserAuth } from '../auth/AuthContext'
 import { getRestaurantsName } from '@/../supabase/queries'
-import { FaHouse } from "react-icons/fa6";
-import { IoRestaurantSharp } from "react-icons/io5";
-import { IoIosStats } from "react-icons/io";
-import { IoIosSettings } from "react-icons/io";
-import { FaHistory } from "react-icons/fa";
+
 
 const DashboardLayout = ({ children } : { children : React.ReactElement }) => {
 
@@ -81,33 +77,33 @@ const DashboardLayout = ({ children } : { children : React.ReactElement }) => {
             </nav>
         
             {/* SideBar */}
-            <div id="sidebar" className='block border-r-1 border-[#e6e6e6] h-[calc(100vh-96px)] w-64 max-h-screen'>
+            <div id="sidebar" className='block border-r-1 border-[#e6e6e6] h-[calc(100vh-96px)] w-44 max-h-screen'>
                 
                 <ul className='flex flex-col h-full'>
 
                     <li>
                         <Link to={"/restaurants"}>
-                            <FaHouse className='icon'/>Restaurants
+                            Restaurants
                         </Link>    
                     </li>
                     <li>
                         <Link to={"/reservations"}>
-                            <IoRestaurantSharp className='icon'/>Reservations
+                            Reservations
                         </Link>    
                     </li>
                     <li>
                         <Link to={"/reservations"}>
-                            <FaHistory className='icon'/>Historique
+                           Historique
                         </Link>    
                     </li>
                     <li>
                         <Link to={"/statistiques"}>
-                            <IoIosStats className='icon'/>Statistiques
+                            Statistiques
                         </Link>    
                     </li>
                     <li className='mt-auto'>
                         <Link to={"/parametres"}>
-                            <IoIosSettings className='icon'/>Paramètres
+                            Paramètres
                         </Link>    
                     </li>
                     

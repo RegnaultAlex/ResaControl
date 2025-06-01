@@ -3,7 +3,7 @@ import { supabase } from "../../supabase/supabase.ts";
 import { Button, Input, Field, FieldRequiredIndicator, InputGroup } from "@chakra-ui/react";
 import { CiMail } from "react-icons/ci";
 import { Link } from 'react-router-dom';
-import resaControl from '@/assets/resaControl.svg'
+import resaControl from '@/assets/ResaControlText.svg'
 
 
 const ForgotPasswordPage = () => {
@@ -39,7 +39,7 @@ const ForgotPasswordPage = () => {
                 <img src={resaControl} width={"150px"}/>
             </Link>
 
-            <form onSubmit={handlePwdReset} className={"flex flex-col px-6 sm:px-12 md:px-14 lg:px-20 py-14 bg-gray-200 rounded-md"}>
+            <form onSubmit={handlePwdReset} className={"flex flex-col px-6 sm:px-12 md:px-14 lg:px-20 py-14 rounded-md"}>
 
                 <h1 className={"text-4xl mb-10 self-center select-none w-90"}>Mot de passe oublié</h1>
 
@@ -62,13 +62,13 @@ const ForgotPasswordPage = () => {
                     <Field.ErrorText>ce champ est requis</Field.ErrorText>
                 </Field.Root>
                 
-                <br/>
+
 
                 <Button type='submit' 
                         variant={'solid'} 
                         color={"white"} 
                         backgroundColor={"teal.600"} 
-                        className='w-full py-6'
+                        className='w-full py-6 mt-10'
                         disabled={email === ""}
                     >
                     Envoyer

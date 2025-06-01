@@ -1,6 +1,7 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { supabase } from '../../../supabase/supabase';
 import { Session } from '@supabase/supabase-js';
+import { userConnection } from '@/types';
 
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -12,7 +13,7 @@ export const AuthContextProvider = ({ children } : { children : React.ReactEleme
 
 
     // Sign Up
-    const SignUp = async ({ email, password } : { email : string, password : string }) => {
+    const SignUp = async ({ email, password } : userConnection) => {
 
 
         try
@@ -39,7 +40,7 @@ export const AuthContextProvider = ({ children } : { children : React.ReactEleme
 
 
     // Sign In
-    const SignIn = async ({ email, password } : { email : string, password : string }) => {
+    const SignIn = async ({ email, password } : userConnection) => {
 
         try 
         {
@@ -89,7 +90,7 @@ export const AuthContextProvider = ({ children } : { children : React.ReactEleme
 
 
     // Sign Out
-    const SignOut = async() => {
+    const SignOut = async () => {
 
         const { error } = await supabase.auth.signOut();
 

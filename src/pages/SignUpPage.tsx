@@ -24,6 +24,7 @@ const SignUpPage = () => {
     const handleSignUp = async (e : React.FormEvent) => {
 
         e.preventDefault();
+
         try 
         {
             const result = await SignUp({ email, password });
@@ -77,9 +78,9 @@ const SignUpPage = () => {
                         <Field.ErrorText>Ce champ est requis</Field.ErrorText>
                     </Field.Root>
                     
-                    <br/>
 
-                    <Field.Root required>
+
+                    <Field.Root required className='mt-4'>
                         <Field.Label>
                             Mot de passe 
                             <FieldRequiredIndicator/>
@@ -101,9 +102,8 @@ const SignUpPage = () => {
                         <Field.ErrorText>Ce champ est requis</Field.ErrorText>
                     </Field.Root>
 
-                    <br/>
 
-                    <Field.Root required>
+                    <Field.Root required className='mt-4'>
                         <Field.Label>
                             Confirmez votre mot de passe 
                             <FieldRequiredIndicator/>
@@ -122,13 +122,12 @@ const SignUpPage = () => {
                         <Field.ErrorText>Ce champ est requis</Field.ErrorText>
                     </Field.Root>
 
-                    <br/><br/>
 
                     <Button type='submit'
                             variant={'solid'} 
                             color={"white"} 
                             backgroundColor={"teal.600"} 
-                            className={'w-full py-6 disabled:cursor-not-allowed'} 
+                            className={'w-full py-6 disabled:cursor-not-allowed mt-10'} 
                             disabled={email === "" || password === "" || password !== confirmedPassword}>
                         S'enregistrer
                     </Button>

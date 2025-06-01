@@ -75,10 +75,9 @@ const SignInPage = () => {
                         <Field.ErrorText>ce champ est requis</Field.ErrorText>
                     </Field.Root>
                     
-                    <br/>
 
 
-                    <Field.Root required>
+                    <Field.Root required className='mt-4'>
                         <Field.Label>
                             Mot de passe 
                             <FieldRequiredIndicator/>
@@ -98,13 +97,12 @@ const SignInPage = () => {
                         <Field.ErrorText>ce champ est requis</Field.ErrorText>
                     </Field.Root>
 
-                    <br/><br/>
 
                     <Button type='submit' 
                             variant={'solid'} 
                             color={"white"} 
                             backgroundColor={"teal.600"} 
-                            className='w-full py-6'
+                            className='w-full py-6 mt-10'
                             disabled={email === "" || password === ""}
                             >
                         Se connecter
