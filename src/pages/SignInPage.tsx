@@ -16,7 +16,7 @@ const SignInPage = () => {
 
     const { SignIn } = UserAuth();
 
-    const handleSignIn = async (e: React.FormEvent) => {
+    const handleSignIn = async (e : React.FormEvent) => {
 
         e.preventDefault();
 

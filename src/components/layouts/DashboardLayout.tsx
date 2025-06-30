@@ -45,9 +45,6 @@ const DashboardLayout = ({ children } : { children : React.ReactElement }) => {
 
 
 
-
-
-
     return (
 
         loading ?
@@ -82,27 +79,27 @@ const DashboardLayout = ({ children } : { children : React.ReactElement }) => {
                 <ul className='flex flex-col h-full'>
 
                     <li>
-                        <Link to={"/restaurants"}>
+                        <Link to={"/dashboard/restaurants"}>
                             Restaurants
                         </Link>    
                     </li>
                     <li>
-                        <Link to={"/reservations"}>
+                        <Link to={"/dashboard/reservations"}>
                             Reservations
                         </Link>    
                     </li>
                     <li>
-                        <Link to={"/reservations"}>
+                        <Link to={"/dashboard/reservations"}>
                            Historique
                         </Link>    
                     </li>
                     <li>
-                        <Link to={"/statistiques"}>
+                        <Link to={"/dashboard/statistiques"}>
                             Statistiques
                         </Link>    
                     </li>
                     <li className='mt-auto'>
-                        <Link to={"/parametres"}>
+                        <Link to={"/dashboard/parametres"}>
                             Paramètres
                         </Link>    
                     </li>

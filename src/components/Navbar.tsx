@@ -33,11 +33,11 @@ export default function Navbar()
                                     
                     <>
                         <Button colorPalette={"black"} color={"white"} asChild marginRight={"30px"}>
-                            <Link to="/signup">Sign up</Link>
+                            <Link to="/inscription">S'inscrire</Link>
                         </Button>
 
                         <Button variant={"ghost"} asChild >
-                            <Link to="/signin">Sign in</Link>
+                            <Link to="/connexion">Se connecter</Link>
                         </Button>
                     </>
 
