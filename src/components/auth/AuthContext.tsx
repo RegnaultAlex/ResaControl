@@ -1,7 +1,7 @@
 import { createContext, useState, useContext, useEffect } from 'react';
 import { supabase } from '../../../supabase/supabase';
 import { Session } from '@supabase/supabase-js';
-import { userConnection } from '@/types';
+import { userConnection, AuthContextType } from '@/types';
 
 
 const AuthContext = createContext<AuthContextType | null>(null);
@@ -122,11 +122,3 @@ export const UserAuth = () => {
     return context;
 }
 
-
-type AuthContextType = {
-    session: Session | null;
-    loading: boolean;
-    SignIn: ({ email, password }: { email: string; password: string }) => Promise<{ success: boolean; error: any } | { success: boolean; data: any } | undefined>;
-    SignUp: ({ email, password }: { email: string; password: string }) => Promise<{ success: boolean; error: any } | { success: boolean; data: any } | undefined>;
-    SignOut: () => Promise<void>;
-};

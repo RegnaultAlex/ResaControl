@@ -35,7 +35,7 @@ const SignUpPage = () => {
             }
             else
             {
-                setError("Cette addresse e-mail est déjà utilisée !")
+                setError("Cette adresse e-mail est déjà utilisée !")
             }
         }
         catch(err)
